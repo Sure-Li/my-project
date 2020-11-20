@@ -1,0 +1,5 @@
+//com.springsource.config.ui.prefs.activePageIndex\:/atcrowdfunding-main/src/main/resources/spring/spring-beans.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/atcrowdfunding-main/src/main/resources/spring/spring-mybatis.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/atcrowdfunding-main/src/main/resources/spring/spring-tx.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/atcrowdfunding-main/src/main/resources/spring/springmvc.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+eclipse.preferences.version=1

@@ -1,0 +1,8 @@
+package com.atguigu.atcrowdfunding.util;
+
+public class Snippet {
+	public static void main(String[] args) {
+		com.atguigu.atcrowdfunding.util
+	}
+}
+
