@@ -1,12 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.atguigu.atcrowdfunding</groupId>
-  <artifactId>atcrowdfunding-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>atcrowdfunding-parent</name>
-  <description>父工程：聚合其他工程(pom) ，管理所有依赖</description>
-  <properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.atguigu.atcrowdfunding</groupId>
+	<artifactId>atcrowdfunding-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>atcrowdfunding-parent</name>
+	<description>父工程：聚合其他工程(pom) ，管理所有依赖</description>
+	<properties>
 		<!-- 公共依赖 -->
 		<commons-io.version>2.5</commons-io.version>
 		<commons-lang3.version>3.6</commons-lang3.version>
@@ -48,6 +50,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<slf4j.version>1.7.6</slf4j.version>
 		<logback.version>1.2.3</logback.version>
+		<jcl.over.slf4j>1.7.25</jcl.over.slf4j>
 
 		<!-- servlet-api，jsp-api，jstl -->
 		<servlet-api.version>2.5</servlet-api.version>
@@ -257,6 +260,17 @@
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.version}</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId><!-- 替换commons-logging -->
+				<version>${jcl.over.slf4j}</version>
+			</dependency>
 
 			<!-- 依赖的WEB类库 -->
 			<dependency>
@@ -277,11 +291,7 @@
 				<version>${jstl.version}</version>
 			</dependency>
 
-			<dependency>
-				<groupId>ch.qos.logback</groupId>
-				<artifactId>logback-classic</artifactId>
-				<version>${logback.version}</version>
-			</dependency>
+			
 
 		</dependencies>
 	</dependencyManagement>

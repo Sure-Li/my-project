@@ -1,5 +1,4 @@
 INDEX VERSION 1.131+E:\atguigu\.metadata\.plugins\org.eclipse.jdt.core
-1704824479.index
 3780813794.index
 879703080.index
 893220653.index
@@ -41,7 +40,6 @@ INDEX VERSION 1.131+E:\atguigu\.metadata\.plugins\org.eclipse.jdt.core
 2198157099.index
 2912183867.index
 1724592611.index
-1688627574.index
 591621392.index
 362118089.index
 2136880440.index

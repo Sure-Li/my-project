@@ -5,7 +5,20 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2020-11-18T18:54:00Z</updated>
+  <updated>2020-11-20T04:43:52Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: BDD creator, optimizer of organizations and agile legend Dan North</title>
+    <link rel="alternate" href="https://spring.io/blog/2020/11/20/a-bootiful-podcast-bdd-creator-optimizer-of-organizations-and-agile-legend-dan-north" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2020-11-20:4274</id>
+    <updated>2020-11-20T04:43:52Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this episode &lt;a href="http://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to &lt;a href="http://twitter.com/tastapod"&gt;Dan North (@tastapod)&lt;/a&gt;, creator of BDD, optimizer of teams and all around legend. &lt;/p&gt;
+&lt;iframe title="Programmer, Agile coach, technologist, and troublemaker Dan North" height="122" width="100%" style="border: none;" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/media/player/vpztd-f2ce17?from=pb6admin&amp;download=1&amp;version=1&amp;auto=0&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Helvetica&amp;skin=1&amp;pfauth=&amp;btn-skin=107"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud 2020.0.0-M5 (aka Ilford) is Available</title>
     <link rel="alternate" href="https://spring.io/blog/2020/11/18/spring-cloud-2020-0-0-m5-aka-ilford-is-available" />
@@ -1590,102 +1603,6 @@ Spring Security 5.5.0-M1! You can find the complete details in the &lt;a href="h
   &lt;li&gt;&lt;a href="https://twitter.com/java/status/1321586704042455040"&gt; Java 16 Update: New JEP Proposed to Target: 394: Pattern Matching for instanceof. Targeted JEP Additions: 380: Unix-Domain Socket Channels and 395: Records &lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href="https://springdoc.org/"&gt;springdoc-openapi | Library for OpenAPI 3 with spring-boot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Integration 5.4 goes GA; some other Integration releases</title>
-    <link rel="alternate" href="https://spring.io/blog/2020/11/02/spring-integration-5-4-goes-ga-some-other-integration-releases" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Artem Bilan</name>
-    </author>
-    <id>tag:spring.io,2020-11-02:4251</id>
-    <updated>2020-11-02T16:18:19Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;Dear Spring community,&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf the team and everybody contributed, it&amp;#8217;s my pleasure to announce that last week we released general availability for Spring Integration &lt;code&gt;5.4&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;It can be downloaded from Maven Central:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="groovy"&gt;compile 'org.springframework.integration:spring-integration-core:5.4.0'&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Here is a summary of features and improvements for this Spring Integration generation:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;R2DBC channel adapters;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;ZeroMQ proxy, message channel and channel adapters;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Redis Streams channel adapters (which are reactive);&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The &lt;code&gt;spring-integration-kafka&lt;/code&gt; extension has been moved to the core project and, alongside with an upgrade to the latest Spring for Apache Kafka &lt;code&gt;2.6.2&lt;/code&gt;, includes some improvements;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The &lt;code&gt;RenewableLockRegistry&lt;/code&gt; is implemented for the &lt;code&gt;JdbcLockRegistry&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;See &lt;a href="https://docs.spring.io/spring-integration/docs/5.4.0/reference/html/whats-new.html#whats-new"&gt;What&amp;#8217;s New&lt;/a&gt; in documentation for more information.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This version is included into dependency management of Spring Boot &lt;a href="https://spring.io/blog/2020/10/30/spring-boot-2-4-0-rc1-available-now"&gt;&lt;code&gt;2.4.0-RC1&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="other-relevant-releases"&gt;&lt;a class="anchor" href="#other-relevant-releases"&gt;&lt;/a&gt;Other relevant releases&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We also released several maintenance versions and some Spring Integration extensions:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Spring Integration &lt;code&gt;5.1.13.RELEASE&lt;/code&gt; - the last release in this generation: has reached its End of Life and goes out of support starting this November;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Spring Integration &lt;code&gt;5.2.9.RELEASE&lt;/code&gt; - includes bug fixes and dependencies upgrades; going to be supported until Spring Boot &lt;code&gt;2.2&lt;/code&gt; generation;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Spring Integration &lt;code&gt;5.3.3.RELEASE&lt;/code&gt; - includes bug fixes and dependencies upgrades; going to be supported until Spring Boot &lt;code&gt;2.3&lt;/code&gt; generation;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;spring-integration-aws-2.3.4.RELEASE&lt;/code&gt; - upgrades, some good contribution and several bug fixes; based on Spring Integration &lt;code&gt;5.3.3.RELEASE&lt;/code&gt; and Spring Cloud AWS &lt;code&gt;2.2.4.RELEASE&lt;/code&gt;;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;spring-cloud-stream-binder-aws-kinesis-2.0.3.RELEASE&lt;/code&gt; - some good contributions and upgrades to the latest dependencies;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;spring-integration-cassandra-0.9.0&lt;/code&gt; - based on Spring Integration &lt;code&gt;5.4&lt;/code&gt; and Spring Data &lt;code&gt;2020.0.0&lt;/code&gt;; used by the latest &lt;a href="https://github.com/spring-cloud/stream-applications"&gt;Stream Applications&lt;/a&gt;;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;spring-integration-hazelcast-3.0.0&lt;/code&gt; - upgrades to the latest versions of Spring Integration and Hazelcast and respective API incompatibility fixes.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;See more information in &lt;a href="https://github.com/spring-projects/spring-integration-extensions"&gt;Spring Integration Extensions&lt;/a&gt; project.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Cheers,&amp;#160;&lt;br&gt;
-Artem&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-integration/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-integration"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-integration"&gt;Chat&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
