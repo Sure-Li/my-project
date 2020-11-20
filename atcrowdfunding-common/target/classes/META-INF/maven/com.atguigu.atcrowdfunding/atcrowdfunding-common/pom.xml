@@ -51,6 +51,10 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId><!-- 替换commons-logging -->
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId><!-- 替换java.util.logging -->
+		</dependency>
 
 	</dependencies>
 	<parent>

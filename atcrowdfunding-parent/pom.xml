@@ -51,6 +51,7 @@
 		<slf4j.version>1.7.6</slf4j.version>
 		<logback.version>1.2.3</logback.version>
 		<jcl.over.slf4j>1.7.25</jcl.over.slf4j>
+		<jul.to.slf4j>1.7.25</jul.to.slf4j>
 
 		<!-- servlet-api，jsp-api，jstl -->
 		<servlet-api.version>2.5</servlet-api.version>
@@ -260,7 +261,7 @@
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
@@ -270,6 +271,12 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>jcl-over-slf4j</artifactId><!-- 替换commons-logging -->
 				<version>${jcl.over.slf4j}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jul-to-slf4j</artifactId><!-- 替换java.util.logging -->
+				<version>${jul.to.slf4j}</version>
 			</dependency>
 
 			<!-- 依赖的WEB类库 -->
@@ -291,7 +298,7 @@
 				<version>${jstl.version}</version>
 			</dependency>
 
-			
+
 
 		</dependencies>
 	</dependencyManagement>
