@@ -9,5 +9,5 @@
 	<root level="DEBUG">
 		<appender-ref ref="STDOUT" />
 	</root>
-
+	<!-- 此处DEBUG<INFO<WARN<ERROR -->
 </configuration>
