@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" errorPage="WEB-INF/jsp/error/error.jsp"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%-- 	<%
-		int i = 1 / 0;
-	%>> --%>
-	<jsp:forward page="/index"></jsp:forward>
+	ERROR.
 </body>
 </html>
