@@ -43,7 +43,7 @@ public class DispatherController {
 		paramMap.put("loginacct",loginacct);
 		paramMap.put("userpswd",userpswd);
 		try {
-			TAdmin admin =  adminService.getTAdminByLogin();
+			TAdmin admin =  adminService.getTAdminByLogin(paramMap);
 			session.setAttribute(Const.LOGIN_ADMIN, admin);
 			log.debug("登陆成功");
 			return "main";
