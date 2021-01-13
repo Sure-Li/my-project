@@ -13,6 +13,7 @@ import com.atguigu.atcrowdfunding.exception.LoginException;
 import com.atguigu.atcrowdfunding.mapper.TAdminMapper;
 import com.atguigu.atcrowdfunding.service.TAdminService;
 import com.atguigu.atcrowdfunding.util.Const;
+import com.atguigu.atcrowdfunding.util.MD5Util;
 
 @Service
 public class TAdminServiceImpl implements TAdminService {
@@ -36,7 +37,7 @@ public class TAdminServiceImpl implements TAdminService {
 		}
 		TAdmin admin = list.get(0);
 		// 4判断密码是否一致
-		if (!admin.getUserpswd().equals(userpswd)) {
+		if (!admin.getUserpswd().equals(MD5Util.digest(userpswd))) {
 			throw new LoginException(Const.LOGIN_USERPSWD_ERROR);
 		}
 		// 5返回结果

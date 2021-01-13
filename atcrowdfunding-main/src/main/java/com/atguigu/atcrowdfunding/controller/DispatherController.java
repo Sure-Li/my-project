@@ -35,6 +35,21 @@ public class DispatherController {
 		log.debug("跳转到登录主页面。。。"); 
 		return "login";
 	}
+	@RequestMapping("/main")
+	public String main() {
+		log.debug("跳转到主页面。。。"); 
+		return "main";
+	}
+	@RequestMapping("/logout")
+	public String louout(HttpSession session) {
+		if(session!=null) {
+			session.removeAttribute(Const.LOGIN_ADMIN);
+			session.invalidate();
+		}
+		log.debug("跳转到主页面。。。"); 
+		return "redirect:/index";
+	}
+	
 	@RequestMapping("/doLogin")
 	public String doLogin(String loginacct,String userpswd,HttpSession session,org.springframework.ui.Model model) {
 		log.debug("开始登陆。。。"); 
@@ -46,11 +61,11 @@ public class DispatherController {
 			TAdmin admin =  adminService.getTAdminByLogin(paramMap);
 			session.setAttribute(Const.LOGIN_ADMIN, admin);
 			log.debug("登陆成功");
-			return "main";
+			return "redirect:/main";
 		} catch (Exception e) {
 			log.debug("登陆失败={}。。。。"+e.getMessage());
 			model.addAttribute("message", e.getMessage());
-			return "login";
+			return "login"; 
 		}
 		
 	}

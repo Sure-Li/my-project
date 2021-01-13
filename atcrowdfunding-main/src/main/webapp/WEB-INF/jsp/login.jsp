@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
@@ -9,8 +10,7 @@
     <meta name="description" content="">
     <meta name="keys" content="">
     <meta name="author" content="">
-	<link rel="stylesheet" href="${PATH}/static/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="${PATH}/static/css/font-awesome.min.css">
+    <%@include file="/WEB-INF/jsp/common/css.jsp" %>
 	<link rel="stylesheet" href="${PATH}/static/css/login.css">
 	<style>
 
@@ -29,12 +29,17 @@
 
       <form id="loginForm" class="form-signin" role="form" action="doLogin" metod="post" >
         <h2 class="form-signin-heading"><i class="glyphicon glyphicon-log-in"></i> 用户登录</h2>
+       <c:if test="${!empty message}">
+        <div class="form-group has-success has-feedback">
+        	${message}
+		  </div> 
+		  </c:if>
 		  <div class="form-group has-success has-feedback">
-			<input type="text" class="form-control" id="loginacct" name="loginacct" placeholder="请输入登录账号" autofocus>
+			<input type="text" class="form-control" id="loginacct" value="${param.loginacct}" name="loginacct" placeholder="请输入登录账号" autofocus>
 			<span class="glyphicon glyphicon-user form-control-feedback"></span>
 		  </div> 
 		  <div class="form-group has-success has-feedback">
-			<input type="text" class="form-control" id="userpswd" name="userpswd" placeholder="请输入登录密码" style="margin-top:10px;">
+			<input type="password" class="form-control" id="userpswd" name="userpswd" placeholder="请输入登录密码" style="margin-top:10px;">
 			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		  </div>
 		  <!-- <div class="form-group has-success has-feedback">
@@ -58,8 +63,7 @@
         <a class="btn btn-lg btn-success btn-block" onclick="dologin()" > 登录</a>
       </form>
     </div>
-    <script src="${PATH}/static/jquery/jquery-2.1.1.min.js"></script>
-    <script src="${PATH}/static/bootstrap/js/bootstrap.min.js"></script>
+    <%@include file="/WEB-INF/jsp/common/script.jsp" %>
     <script>
     function dologin() {
        /*  var type = $(":selected").val();
