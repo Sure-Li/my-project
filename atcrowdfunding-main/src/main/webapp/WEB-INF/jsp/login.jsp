@@ -66,12 +66,11 @@
     <%@include file="/WEB-INF/jsp/common/script.jsp" %>
     <script>
     function dologin() {
-       /*  var type = $(":selected").val();
-        if ( type == "user" ) {
-            window.location.href = "main.html";
-        } else {
-            window.location.href = "index.html";
-        } */
+        var loginacct = $("#loginacct").val();
+        if ( $.trim(loginacct) == "" ) {
+        	layer.msg("用户名不成功，请输入",{time:2000,icon:5});
+        	return false;
+        } 
         $('#loginForm').submit();
     }
     </script>

@@ -13,4 +13,10 @@ public interface TAdminService {
 
 	TAdmin getTAdminById(Integer id);
 
+	Integer saveAdmin(TAdmin admin);
+
+	Integer updateAdmin(TAdmin admin);
+
+	Integer deleteAdmin(Integer id);
+
 }

@@ -33,5 +33,26 @@ public class TAdminController {
 		model.addAttribute("admin", admin);
 		return "admin/update";
 	}
+	@RequestMapping("admin/doUpdate")
+	public String doUpdate(TAdmin admin,Integer pageNum){
+		adminService.updateAdmin(admin);
+		return "redirect:/admin/index?pageNum="+pageNum;
+	}
+
+	
+	@RequestMapping("admin/toadd")
+	public String toAdd(){
+		return "admin/add";
+	}
+	@RequestMapping("admin/doAdd")
+	public String doAdd(TAdmin admin){
+		adminService.saveAdmin(admin);
+		return "redirect:/admin/index?pageNum="+Integer.MAX_VALUE;
+	}
+	@RequestMapping("admin/doDelete")
+	public String doDelete(Integer pageNum,Integer id){
+		adminService.deleteAdmin(id);
+		return "redirect:/admin/index?pageNum="+pageNum;
+	}
 }
 	

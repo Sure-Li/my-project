@@ -58,7 +58,7 @@ table tbody td:nth-child(even) {
 							<i class=" glyphicon glyphicon-remove"></i> 删除
 						</button>
 						<button type="button" class="btn btn-primary"
-							style="float: right;" onclick="window.location.href='add.html'">
+							style="float: right;" onclick="window.location.href='${PATH}/admin/toadd'">
 							<i class="glyphicon glyphicon-plus"></i> 新增
 						</button>
 						<br>
@@ -91,7 +91,7 @@ table tbody td:nth-child(even) {
 													<button type="button" class="btn btn-primary btn-xs" onclick="window.location.href='${PATH}/admin/toupdate?pageNum=${page.pageNum}&id=${admin.id}'">
 														<i class=" glyphicon glyphicon-pencil"></i>
 													</button>
-													<button type="button" class="btn btn-danger btn-xs">
+													<button type="button" adminId="${admin.id}" class="deleteBtnClass btn btn-danger btn-xs" >
 														<i class=" glyphicon glyphicon-remove"></i>
 													</button>
 												</td>
@@ -155,12 +155,15 @@ table tbody td:nth-child(even) {
 				}
 			});
 		});
-		$("tbody .btn-success").click(function() {
-			window.location.href = "assignRole.html";
+		$(".deleteBtnClass").click(function() {
+			var id = $(this).attr('adminId');
+			layer.confirm('您是否确定删除该些数据?',{btn:['确定','取消']},function(index){
+				window.location.href="${PATH}/admin/doDelete?pageNum=${page.pageNum}&id="+id;
+        		layer.close(index);
+        	},function(index){
+        		layer.close(index);
+        	});
 		});
-		/* $("tbody .btn-primary").click(function() {
-			window.location.href = "edit.html";
-		}); */
 	</script>
 </body>
 </html>
