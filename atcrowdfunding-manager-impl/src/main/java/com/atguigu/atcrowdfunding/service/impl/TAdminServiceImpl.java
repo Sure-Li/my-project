@@ -14,6 +14,7 @@ import com.atguigu.atcrowdfunding.mapper.TAdminMapper;
 import com.atguigu.atcrowdfunding.service.TAdminService;
 import com.atguigu.atcrowdfunding.util.Const;
 import com.atguigu.atcrowdfunding.util.MD5Util;
+import com.github.pagehelper.PageInfo;
 
 @Service
 public class TAdminServiceImpl implements TAdminService {
@@ -42,5 +43,18 @@ public class TAdminServiceImpl implements TAdminService {
 		}
 		// 5返回结果
 		return admin;
+	}
+
+	@Override
+	public PageInfo<TAdmin> listAdminPage(Map<String, Object> paramMap) {
+		TAdminExample example = new TAdminExample();
+		List<TAdmin> list = adminMapper.selectByExample(example);
+		PageInfo<TAdmin> page = new PageInfo<TAdmin>(list, 5);
+		return page;
+	}
+
+	@Override
+	public TAdmin getTAdminById(Integer id) {
+		return adminMapper.selectByPrimaryKey(id);
 	}
 }

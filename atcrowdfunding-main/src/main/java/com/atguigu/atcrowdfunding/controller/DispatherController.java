@@ -1,6 +1,7 @@
 package com.atguigu.atcrowdfunding.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -12,15 +13,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.atguigu.atcrowdfunding.bean.TAdmin;
+import com.atguigu.atcrowdfunding.bean.TMenu;
 import com.atguigu.atcrowdfunding.service.TAdminService;
+import com.atguigu.atcrowdfunding.service.TMenuService;
 import com.atguigu.atcrowdfunding.util.Const;
-import com.sun.tools.internal.ws.processor.model.Model;
 
 // 负责转发
 @Controller
 public class DispatherController {
 	@Autowired
 	TAdminService adminService;
+	
+	@Autowired
+	TMenuService menuService;
 	
 //	日志
 	Logger log = LoggerFactory.getLogger(DispatherController.class);
@@ -36,8 +41,11 @@ public class DispatherController {
 		return "login";
 	}
 	@RequestMapping("/main")
-	public String main() {
+	public String main(HttpSession session) { 
 		log.debug("跳转到主页面。。。"); 
+		//存放父菜单
+		List<TMenu> menuList = menuService.listMenuAll();
+		session.setAttribute("menuList", menuList);
 		return "main";
 	}
 	@RequestMapping("/logout")

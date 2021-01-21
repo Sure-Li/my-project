@@ -1,9 +1,0 @@
-INDEX VERSION 1.4+E:\atguigu\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3367578428.index
-2026821769.index
-4144520302.index
-2676505630.index
-3554030097.index
-1330903822.index
-1234441951.index
-3501568086.index
