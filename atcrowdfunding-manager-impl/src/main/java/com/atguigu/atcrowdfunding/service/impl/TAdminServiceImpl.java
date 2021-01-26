@@ -82,4 +82,9 @@ public class TAdminServiceImpl implements TAdminService {
 	public Integer deleteAdmin(Integer id) {
 		return adminMapper.deleteByPrimaryKey(id);
 	}
+
+	@Override
+	public Integer doDeleteBatch(List<Integer> idList) {
+		return adminMapper.doDeleteBatch(idList);
+	}
 }

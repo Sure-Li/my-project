@@ -27,4 +27,6 @@ public interface TAdminMapper {
     int updateByPrimaryKeySelective(TAdmin record);
 
     int updateByPrimaryKey(TAdmin record);
+
+	Integer doDeleteBatch(@Param("idList") List<Integer> idList);
 }

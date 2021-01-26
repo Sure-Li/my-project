@@ -1,6 +1,8 @@
 package com.atguigu.atcrowdfunding.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,16 @@ public class TAdminController {
 	@RequestMapping("admin/doDelete")
 	public String doDelete(Integer pageNum,Integer id){
 		adminService.deleteAdmin(id);
+		return "redirect:/admin/index?pageNum="+pageNum;
+	}
+	@RequestMapping("admin/doDeleteBatch")
+	public String doDeleteBatch(String ids,Integer pageNum) {
+		List<Integer> idList = new ArrayList<Integer>();
+		String[] spilt = ids.split(",");
+		for (String string : spilt) {
+			idList.add(Integer.parseInt(string));
+		}
+		adminService.doDeleteBatch(idList);
 		return "redirect:/admin/index?pageNum="+pageNum;
 	}
 }

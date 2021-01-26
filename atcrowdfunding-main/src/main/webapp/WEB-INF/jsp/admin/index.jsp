@@ -45,7 +45,7 @@ table tbody td:nth-child(even) {
 							<div class="form-group has-feedback">
 								<div class="input-group">
 									<div class="input-group-addon">查询条件</div>
-									<input class="form-control has-success" name="condition" type="text"
+									<input class="form-control has-success" name="condition" value="${param.condition}" type="text"
 										placeholder="请输入查询条件">
 								</div>
 							</div>
@@ -53,7 +53,7 @@ table tbody td:nth-child(even) {
 								<i class="glyphicon glyphicon-search"></i> 查询
 							</button>
 						</form>
-						<button type="button" class="btn btn-danger"
+						<button id="deleteBatchBtn" type="button" class="btn btn-danger"
 							style="float: right; margin-left: 10px;">
 							<i class=" glyphicon glyphicon-remove"></i> 删除
 						</button>
@@ -68,7 +68,7 @@ table tbody td:nth-child(even) {
 								<thead>
 									<tr>
 										<th width="30">#</th>
-										<th width="30"><input type="checkbox"></th>
+										<th width="30"><input id="selectAll" type="checkbox"></th>
 										<th>账号</th>
 										<th>名称</th>
 										<th>邮箱地址</th>
@@ -80,7 +80,7 @@ table tbody td:nth-child(even) {
 										<c:forEach items="${page.list}" var="admin" varStatus="status">
 											<tr>
 												<td>${status.count}</td>
-												<td><input type="checkbox"></td>
+												<td><input type="checkbox" adminId="${admin.id}"></td>
 												<td>${admin.loginacct}</td>
 												<td>${admin.username}</td>
 												<td>${admin.email}</td>
@@ -109,7 +109,7 @@ table tbody td:nth-child(even) {
 												</c:if>
 												<c:if test="${!page.isFirstPage }">
 													<li><a
-														href="${PATH}/admin/index?pageNum=${page.pageNum-1}">上一页</a></li>
+														href="${PATH}/admin/index?condition=${param.condition}&pageNum=${page.pageNum-1}">上一页</a></li>
 												</c:if>
 												
 												<c:forEach items="${page.navigatepageNums}" var="num">
@@ -118,7 +118,7 @@ table tbody td:nth-child(even) {
 														class="sr-only">(current)</span></a></li>
 												</c:if>
 												<c:if test="${num!=page.pageNum}">
-													<li ><a href="${PATH}/admin/index?pageNum=${num}">${num} <span></span></a></li>
+													<li ><a href="${PATH}/admin/index?condition=${param.condition}&pageNum=${num}">${num} <span></span></a></li>
 												</c:if>
 												</c:forEach>
 
@@ -127,7 +127,7 @@ table tbody td:nth-child(even) {
 												</c:if>
 												<c:if test="${!page.isLastPage }">
 													<li><a
-														href="${PATH}/admin/index?pageNum=${page.pageNum+1}">下一页</a></li>
+														href="${PATH}/admin/index?condition=${param.condition}&pageNum=${page.pageNum+1}">下一页</a></li>
 												</c:if>
 											</ul>
 										</td>
@@ -164,6 +164,30 @@ table tbody td:nth-child(even) {
         		layer.close(index);
         	});
 		});
+		$('#selectAll').off('click').on('click',function(){
+			/* $('tbody input[type="checkbox"]').attr('checked',this.checked); */ //attr主要用于自定义的
+			$('tbody input[type="checkbox"]').prop('checked',this.checked);
+		});
+		$('#deleteBatchBtn').off('click').on('click',function(){
+			var checkedBoxList = $('tbody input[type="checkbox"]:checked');
+			if(checkedBoxList.length==0){
+				layer.msg("请选中再删除");
+				return false;
+			}
+			var ids = '';
+			var array = new Array();
+			$.each(checkedBoxList,function(i,e){
+				array.push($(e).attr("adminId"));
+			});
+			ids=array.join(",");
+			layer.confirm('您是否确定删除该些数据?',{btn:['确定','取消']},function(index){
+				window.location.href="${PATH}/admin/doDeleteBatch?pageNum=${page.pageNum}@ids="+ids;
+				layer.close(index);
+        	},function(index){
+        		layer.close(index);
+        	});
+		});
+		
 	</script>
 </body>
 </html>
