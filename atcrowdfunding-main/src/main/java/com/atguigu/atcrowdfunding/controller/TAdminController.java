@@ -20,9 +20,10 @@ public class TAdminController {
 	private TAdminService adminService;
 
 	@RequestMapping("admin/index")
-	public String index(@RequestParam(value="pageNum",required=false,defaultValue="1") Integer pageNum,@RequestParam(value="pageSize",required=false,defaultValue="2") Integer pageSize,Model model){
+	public String index(@RequestParam(value="pageNum",required=false,defaultValue="1") Integer pageNum,@RequestParam(value="pageSize",required=false,defaultValue="2") Integer pageSize,Model model,@RequestParam(value="condition",required=false,defaultValue="")String condition){
 		PageHelper.startPage(pageNum, pageSize);//线程绑定
 		Map<String,Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("condition", condition);
 		PageInfo<TAdmin> page =  adminService.listAdminPage(paramMap);
 		model.addAttribute("page", page);
 		return "admin/index";

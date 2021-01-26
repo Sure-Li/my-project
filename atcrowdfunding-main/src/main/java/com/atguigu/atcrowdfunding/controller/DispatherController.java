@@ -43,9 +43,15 @@ public class DispatherController {
 	@RequestMapping("/main")
 	public String main(HttpSession session) { 
 		log.debug("跳转到主页面。。。"); 
+		if(session==null) {
+			return "redirect:/login";
+		}
 		//存放父菜单
-		List<TMenu> menuList = menuService.listMenuAll();
-		session.setAttribute("menuList", menuList);
+		List<TMenu> menuList = (List<TMenu>) session.getAttribute("menuList");
+		if(menuList==null) {
+			menuList = menuService.listMenuAll();
+			session.setAttribute("menuList", menuList);
+		}
 		return "main";
 	}
 	@RequestMapping("/logout")

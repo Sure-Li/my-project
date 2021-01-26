@@ -13,7 +13,7 @@
 						<ul style="margin-top:10px;display:none;">
 							<c:forEach items="${menu.children}" var="menuChild">
 								<li style="height:30px;">
-									<a href="${menuChild.url}"><i class="${menuChild.icon}"></i> ${menuChild.name}</a>  
+									<a href="${PATH}/${menuChild.url}"><i class="${menuChild.icon}"></i> ${menuChild.name}</a>  
 								</li>
 							</c:forEach>
 						</ul>

@@ -48,7 +48,13 @@ public class TAdminServiceImpl implements TAdminService {
 
 	@Override
 	public PageInfo<TAdmin> listAdminPage(Map<String, Object> paramMap) {
+		String condition = (String) paramMap.get("condition");
 		TAdminExample example = new TAdminExample();
+		if (!"".equals(condition)) {
+			example.createCriteria().andUsernameLike("%"+condition+"%");
+			example.or(example.createCriteria().andLoginacctLike("%"+condition+"%"));
+			example.or(example.createCriteria().andEmailLike("%"+condition+"%"));
+		}
 		example.setOrderByClause("createtime");
 		List<TAdmin> list = adminMapper.selectByExample(example);
 		PageInfo<TAdmin> page = new PageInfo<TAdmin>(list, 5);
