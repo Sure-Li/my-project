@@ -181,7 +181,7 @@ table tbody td:nth-child(even) {
 			});
 			ids=array.join(",");
 			layer.confirm('您是否确定删除该些数据?',{btn:['确定','取消']},function(index){
-				window.location.href="${PATH}/admin/doDeleteBatch?pageNum=${page.pageNum}@ids="+ids;
+				window.location.href="${PATH}/admin/doDeleteBatch?pageNum=${page.pageNum}&ids="+ids;
 				layer.close(index);
         	},function(index){
         		layer.close(index);

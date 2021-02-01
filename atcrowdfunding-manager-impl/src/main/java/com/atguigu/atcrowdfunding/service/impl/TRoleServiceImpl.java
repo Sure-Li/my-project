@@ -34,4 +34,27 @@ public class TRoleServiceImpl implements TRoleService {
 		PageInfo<TRole> page = new PageInfo<TRole>(list, 5);
 		return page;
 	}
+
+	@Override
+	public int doAdd(TRole role) {
+		return roleMapper.insertSelective(role);
+	}
+
+	@Override
+	public TRole getRoleById(Integer id) {
+		return roleMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public int doUpdate(TRole role) {
+		TRoleExample example = new TRoleExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andIdEqualTo(role.getId());
+		return roleMapper.updateByExampleSelective(role, example);
+	}
+
+	@Override
+	public Integer doDelete(Integer id) {
+		return roleMapper.deleteByPrimaryKey(id);
+	}
 }

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,4 +38,33 @@ public class TRoleController {
 		PageInfo<TRole> page = roleService.listRolePage(paramMap);
 		return page;
 	}
+	@ResponseBody
+	@RequestMapping("/role/doAdd")
+	public String doAdd(TRole role) {
+		String result = "failure";
+		if(roleService.doAdd(role)>0) {
+			result="ok";
+		}
+		return result;
+	}
+	@ResponseBody
+	@RequestMapping("/role/doUpdate")
+	public String doUpdate(TRole role) {
+		String result = "failure";
+		if(roleService.doUpdate(role)>0) {
+			result="ok";
+		}
+		return result;
+	}
+	@ResponseBody
+	@RequestMapping("/role/getRoleById")
+	public TRole getRoleById(Integer id) {
+		return roleService.getRoleById(id);
+	} 
+	@ResponseBody
+	@RequestMapping("/role/doDelete")
+	public Integer doDelete(Integer id) {
+		return roleService.doDelete(id);
+	} 
+	
 }
