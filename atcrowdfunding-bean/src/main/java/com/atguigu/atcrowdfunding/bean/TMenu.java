@@ -1,8 +1,6 @@
 package com.atguigu.atcrowdfunding.bean;
-
 import java.util.ArrayList;
 import java.util.List;
-
 public class TMenu {
     private Integer id;
 
