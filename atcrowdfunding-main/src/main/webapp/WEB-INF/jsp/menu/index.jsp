@@ -59,20 +59,50 @@ table tbody td:nth-child(even) {
 		  <div class="form-group">
 			<label for="exampleInputPassword1">菜单名称</label>
 			<input type="hidden" name="pid">
-			<input type="text" class="form-control" id="rolename" name="name" placeholder="请输入带单名称">
+			<input type="text" class="form-control"  name="name" placeholder="请输入带单名称">
 		  </div>
 		  <div class="form-group">
 			<label for="exampleInputPassword1">菜单url</label>
-			<input type="text" class="form-control" id="rolename" name="url" placeholder="请输入菜单url">
+			<input type="text" class="form-control"  name="url" placeholder="请输入菜单url">
 		  </div>
 		  <div class="form-group">
 			<label for="exampleInputPassword1">菜单图标</label>
-			<input type="text" class="form-control" id="rolename" name="icon" placeholder="请输入菜单图标">
+			<input type="text" class="form-control"  name="icon" placeholder="请输入菜单图标">
 		  </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
         <button type="button" class="btn btn-primary" id="savaBtn">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+		<!-- 修改数据模态框 -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">修改菜单</h4>
+      </div>
+      <div class="modal-body">
+		  <div class="form-group">
+			<label for="exampleInputPassword1">菜单名称</label>
+			<input type="hidden" name="id">
+			<input type="text" class="form-control"  name="name" placeholder="请输入带单名称">
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputPassword1">菜单url</label>
+			<input type="text" class="form-control"  name="url" placeholder="请输入菜单url">
+		  </div>
+		  <div class="form-group">
+			<label for="exampleInputPassword1">菜单图标</label>
+			<input type="text" class="form-control"  name="icon" placeholder="请输入菜单图标">
+		  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" id="updateBtn">修改</button>
       </div>
     </div>
   </div>
@@ -186,11 +216,75 @@ table tbody td:nth-child(even) {
     			}
     		});
 		});
-		//=====添加开始===============================
+		//=====添加结束===============================
 		//=====修改开始===============================
-		//=====修改开始===============================
+			function updateBtn(id){
+				$.get("${PATH}/menu/getMenuById",{id:id},function(result){
+            		console.log(result);	
+            		$('#updateModal input[name="name"]').val(result.name);
+            		$('#updateModal input[name="id"]').val(result.id);
+            		$('#updateModal input[name="url"]').val(result.url);
+            		$('#updateModal input[name="icon"]').val(result.icon);
+            		$('#updateModal').modal({
+            			show:true,
+            			backdrop:'static',
+            			keyboard:false
+            		});
+            	});
+				 $('#updateBtn').off('click').on('click',function(){
+					 	var id =  $('#updateModal input[name="id"]').val();
+						var name =  $('#updateModal input[name="name"]').val();
+						var url =  $('#updateModal input[name="url"]').val();
+						var icon =  $('#updateModal input[name="icon"]').val();
+		        		$.ajax({
+		        			type:'post',
+		        			url:"${PATH}/menu/doUpdate",
+		        			data:{
+		        				id:id,
+		        				url:url,
+		        				name:name,
+		        				icon:icon
+		        			},
+		        			beforeSend:function(){
+		        				return true;
+		        			},
+		        			success:function(result){
+		        				if("ok"==result){
+		        					layer.msg('修改成功',{time:1000},function(){
+		            					$('#updateModal').modal('hide');
+		            					$("#updateModal input[name='pid']").val("");
+		        						$("#updateModal input[name='name']").val("");
+		        						$("#updateModal input[name='url']").val("");
+		        						$("#updateModal input[name='icon']").val("");
+		        						initTree();
+		            				});
+		        				}else{
+		        					layer.msg('修改失败',{time:1000});
+		        				}
+		        				initData(json.pageNum);	
+		        			}
+		        		});
+		        	});
+		}
+		//=====修改结束===============================
 		//=====删除开始===============================
-		//=====删除开始===============================
+			function deleteBtn(id){
+                	layer.confirm('您是否确定删除数据?',{btn:['确定','取消']},function(index){
+                		$.post("${PATH}/menu/doDelete",{id:id},function(result){
+                    		console.log(result);	
+    						if(result>0){
+    							layer.msg("删除成功");
+    							initTree();
+    						}else{
+    							layer.msg("删除失败");
+    						}              		
+                    	});
+                	},function(index){
+                		layer.close(index);
+                	});
+                	
+                }
+		//=====删除结束===============================
 		
 	</script>
 </body>

@@ -1,6 +1,7 @@
 package com.atguigu.atcrowdfunding.bean;
 import java.util.ArrayList;
 import java.util.List;
+
 public class TMenu {
     private Integer id;
 
@@ -61,5 +62,4 @@ public class TMenu {
 	public void setChildren(List<TMenu> children) {
 		this.children = children;
 	}
-
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.atguigu.atcrowdfunding.bean.TMenu;
+import com.atguigu.atcrowdfunding.bean.TMenuExample;
 import com.atguigu.atcrowdfunding.mapper.TMenuMapper;
 import com.atguigu.atcrowdfunding.service.TMenuService;
 
@@ -49,6 +50,29 @@ public class TMenuServiceImpl implements TMenuService {
 	@Override
 	public List<TMenu> listMenuAllTree() {
 		return menuMapper.selectByExample(null);
+	}
+
+	@Override
+	public int doAdd(TMenu menu) {
+		return menuMapper.insertSelective(menu);
+	}
+
+	@Override
+	public TMenu getMenuById(Integer id) {
+		return menuMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public int doUpdate(TMenu menu) {
+		TMenuExample example = new TMenuExample();
+		com.atguigu.atcrowdfunding.bean.TMenuExample.Criteria criteria = example.createCriteria();
+		criteria.andIdEqualTo(menu.getId());
+		return menuMapper.updateByExampleSelective(menu, example);
+	}
+
+	@Override
+	public Integer doDelete(Integer id) {
+		return menuMapper.deleteByPrimaryKey(id);
 	}
 
 }

@@ -14,26 +14,49 @@ import com.atguigu.atcrowdfunding.service.TMenuService;
 @Controller
 @RequestMapping("/menu")
 public class TmenuController {
-	
+
 	@Autowired
 	TMenuService menuService;
-	
+
 	@RequestMapping("/index")
 	public String index() {
 		return "menu/index";
 	}
+
 	@ResponseBody
 	@RequestMapping("/loadTree")
 	public List<TMenu> loadTree() {
 		List<TMenu> result = menuService.listMenuAllTree();
 		return result;
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/doAdd")
 	public String doAdd(TMenu menu) {
-		System.err.println(menu);
-		return "ok";
+		String result = "false";
+		if (menuService.doAdd(menu) > 0) {
+			result = "ok";
+		}
+		return result;
+	}
+	@ResponseBody
+	@RequestMapping("/getMenuById")
+	public TMenu getMenuById(Integer id) {
+		return menuService.getMenuById(id);
 	}
 	
+	@ResponseBody
+	@RequestMapping("/doUpdate")
+	public String doUpdate(TMenu menu) {
+		String result = "false";
+		if (menuService.doUpdate(menu) > 0) {
+			result = "ok";
+		}
+		return result;
+	}
+	@ResponseBody
+	@RequestMapping("/doDelete")
+	public Integer doDelete(Integer id) {
+		return menuService.doDelete(id);
+	}
 }

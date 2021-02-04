@@ -10,4 +10,12 @@ public interface TMenuService {
 	
 	List<TMenu> listMenuAllTree();//不用组合父子关系
 
+	int doAdd(TMenu menu);
+
+	TMenu getMenuById(Integer id);
+
+	int doUpdate(TMenu menu);
+
+	Integer doDelete(Integer id);
+
 }
